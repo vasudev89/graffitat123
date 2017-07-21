@@ -1,0 +1,2428 @@
+
+<div id="imgModal1" class="modal1">
+
+											<a class="prev1" ng-click="plusSlides1(-1)" ng-disabled="currentIndex == 0" >&#10094;</a>
+											<a class="next1" ng-click="plusSlides1(1)" ng-disabled="currentIndex == currentMediaView.length">&#10095;</a>
+											
+											
+										  <!-- The Close Button -->
+										  <span class="close1" onclick="document.getElementById('imgModal1').style.display='none'">&times;</span>
+
+										  <!-- Modal Content (The Image) -->
+										  <img class="modal-content1 frame" id="img02"  style="max-height: 85%;">
+
+										  <!-- Modal Caption (Image Text) -->
+										  <div id="caption1"></div>
+										</div>
+
+
+<div id="viewMentorResponseModal" class="modal1">
+
+  <!-- The Close Button -->
+  <span class="close1" onclick="document.getElementById('viewMentorResponseModal').style.display='none'">&times;</span>
+
+  					<div class="row well" style="margin: auto; width: 90%;"  >
+						
+						<div class="col-lg-4">
+							<img src="{{ViewMentorResponseCurrentMentorPic}}" style="max-width: 150px;" class="img-thumbnail">
+						</div>
+						<div class="col-lg-4">
+							<h1> Mentor: {{ViewMentorResponseCurrentMentorUsername}} </h1>
+
+							<br>
+							Qualifications: 
+							{{ViewMentorResponseCurrentMentorQualifications}}								
+
+							<br>
+							<br>
+							Current Rating: {{currentMentorResponse.Owner.rating}}
+							<br>
+							<div class="star-rating" star-rating1  rating-value='mentorRating' data-max="5" ></div>
+
+						</div>
+							
+					</div>
+
+					<br>
+					
+					<div class="row well" style="margin: auto; width: 90%;">
+
+						Rate This Response:
+
+						<div class="star-rating" star-rating rating-value='rating' data-max="5" on-rating-selected="getSelectedRating(rating)">
+
+						</div>
+
+					</div>
+
+					<br>					
+
+					<div class="row" style="margin: auto; width: 90%;" >
+													
+						<div contenteditable="false" style="min-height: 80px; background-color: #FFFFFF; padding: 15px; border-radius: 5px;" placeholder="Enter Response" ng-model="ViewMentorResponse"></div>
+							
+					</div>
+
+					<br>											
+											
+
+</div>
+
+<div id="postResponsetoGreenhorModal" class="modal1">
+
+  <!-- The Close Button -->
+  <span class="close1" onclick="document.getElementById('postResponsetoGreenhorModal').style.display='none'">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  
+  					<div class="container" style="margin: auto; width: 80%; text-align:center;">
+
+  						<button class='btn btn-primary' ng-click="SubmitResponse()"  ><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;Submit Response</button>
+
+  						<br>
+
+  					</div>
+
+  					<div class="container" style="margin: auto; width: 80%; background-color: #FFFFFF; position: fixed; left: 5%; right: 5%; bottom: 40px;">
+
+  						<br>
+
+
+
+						<div class="container" style="margin: auto; width: 100%;">
+
+							Style: &nbsp;&nbsp;
+
+							<div class="checkbox">
+							  <label><input type="checkbox" style="width: 30px; height: 30px;" ng-model="showResponseStyles" ></label>
+							</div>
+
+							<div class="row" ng-show="showResponseStyles" >
+												
+													<br>
+													<select style="margin :auto; width: 80%;" ng-model="currentStyle" class="form-control select-menu">
+														<option>Basics</option>
+														<option>Images</option>
+														<option>Fonts</option>
+														<option>Colors</option>
+														<option>Alignment</option>
+													</select>	
+													<br>
+
+													<div style="margin :auto; width: 80%;" ng-show="currentStyle == 'Alignment'">
+
+														<br>
+
+														<button class="btn btn-primary" ng-click="Align('Left')">Left</button>
+
+														<button class="btn btn-success" ng-click="Align('Center')">Center</button>
+
+														<button class="btn btn-danger" ng-click="Align('Right')">Right</button>
+
+														<button class="btn btn-primary" ng-click="Align('Justify')">Justify</button>
+
+														<br>
+														<br>
+
+													</div>
+
+
+													<div style="margin :auto; width: 80%;" ng-show="currentStyle == 'Basics'">
+
+														<br>
+
+														<button class="btn btn-primary" ng-click="MakeBold(x.index)">Bold</button>
+
+														<button class="btn btn-success" ng-click="MakeUnderline(x.index)"> Underline</button>
+
+														<button class="btn btn-danger" ng-click="MakeStrikethrough(x.index)">Strikethrough</button>
+
+														<button class="btn btn-primary" ng-click="MakeItalic(x.index)">Italic</button>
+
+														<br>
+														<br>
+
+													</div>
+
+													<div style="margin :auto; width: 80%;" ng-show="currentStyle == 'Images'">
+
+														<br>
+
+														<span style="color: #800000; margin:auto;">Drag images into response</span>
+
+														<br>
+														<br>
+
+														<div class="column1" ng-repeat="x in mediaspace track by $index">
+															
+																<img src="{{x.url}}" alt="" style="width:100%;" class="myImg frame" draggable>
+															
+														</div>
+
+														<br>
+
+													</div>
+
+
+
+													<div style="margin :auto;" ng-show="currentStyle == 'Fonts'">
+
+														<br>
+
+														<div class="container" style="margin: auto; width: 70%;">
+
+															<div class="row">
+
+																<div class="col-lg-6">
+
+																	<select ng-model="currentFontFamily" class="form-control select-menu" ng-change="ChangeFont(currentFontFamily)">
+															<option>Times New Roman</option>
+															<option>Calibri</option>
+															<option>Cambria</option>
+														</select>
+
+																</div>
+
+																<div class="col-lg-6">
+
+														<button class="btn btn-primary" ng-click="ApplyFont()" style="margin: auto;">Apply Font</button>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class="row">
+
+																<div class="col-lg-6">
+
+																	Font-Size:
+
+																</div>
+
+																<div class="col-lg-6">
+
+														<input type="range" min="1" max="7" ng-model="fontsize" ng-change="ChangeFontSize()" />
+														
+																</div>
+
+															</div>
+
+														</div>
+
+														<br>
+														
+														<br>
+														<br>
+
+													</div>
+
+													<div style="margin :auto; width: 80%;" ng-show="currentStyle == 'Colors'">
+
+														<div class="container" style='margin: auto; width: 80%;'>
+															<div class="row">
+
+																<div class="col-lg-6">
+																	<color-picker ng-model="color"></color-picker>
+																</div>
+
+																<div class="col-lg-6">
+														
+																	<select ng-model="currentColorScope" class="form-control select-menu">
+															<option>Foreground</option>
+															<option>Background</option>
+														</select>
+
+														<br>
+
+														<input type="text" class="form-control" ng-model="color">
+
+
+														<br>
+														<button class="btn btn-danger" ng-click="ApplyColor()"> Apply Color </button>
+														<br>
+														<br>
+														<button class="btn btn-success" ng-click="ResetColor()"> Reset Colors </button>
+
+
+																</div>
+
+															</div>
+														</div>
+
+														<br>
+
+													</div>
+
+
+												</div>
+
+						</div>
+
+  					</div>
+
+					<br>
+					
+
+					<div class="row" style="margin: auto; width: 90%;" >
+													
+						<div autofocus="true" id="response_{{x.index}}" contenteditable="true" style="min-height: 80px; background-color: #FFFFFF; padding: 15px; border-radius: 5px;" placeholder="Enter Response" ng-model="GreenHornQuestionResponse" ng-change="" droppable drop="handleDrop()"></div>
+							
+					</div>
+
+					<div class="row" ng-if="PlagiarismWarning" style="margin: auto; width: 80%;" >
+
+						<span style="color: #80000; background-color: #FFC706;">Plagiarism Alert</span>
+
+
+						<div class="alert1" ng-repeat="x in PlagiarismLinks">
+						  <span class="closebtn1" onclick="this.parentElement.style.display='none';">&times;</span> 
+						  <a href="{{x}}" class="btn btn-link" style="color: #FFFFFF;">{{x}}</a>
+						</div>
+
+					</div>
+
+					<br>											
+											
+
+</div>
+
+
+<div id="imgModal" class="modal1" style="z-index: 10000;">
+
+						<a class="prev1" ng-click="plusSlides(-1)" ng-disabled="currentIndex == 0" >&#10094;</a>
+						<a class="next1" ng-click="plusSlides(1)" ng-disabled="currentIndex == mediaspace.length">&#10095;</a>
+						
+						<div class="checkbox" style="text-align: center;">
+						  <label><input type="checkbox" style="width: 30px; height: 30px;" ng-model="mediaspace[currentIndex].valuechecked" ng-change="CheckChanged()" ></label>
+						</div>
+
+					  <!-- The Close Button -->
+					  <span class="close1" onclick="document.getElementById('imgModal').style.display='none'">&times;</span>
+
+					  <!-- Modal Content (The Image) -->
+					  <img class="modal-content1 frame" id="img01"  style="max-height: 85%;">
+
+					  <!-- Modal Caption (Image Text) -->
+					  <div id="caption1"></div>
+					</div>
+
+<!-- ViewMentorModal -->
+									<div id="ViewMentorModal" class="modal fade" role="dialog" style="margin-bottom: -1000px;padding-bottom: 1000px;">
+									  <div class="modal-dialog modal-lg">
+
+									    <!-- Modal content-->
+									    <div class="modal-content" style="margin-top: 100px; margin-left: 0px;margin-right: 0px;">
+									      <div class="modal-header" style="background-color: #800000; color: #FFFFFF;">
+									        <button type="button" class="close" ng-click="CloseViewMentorModal()" data-dismiss="modal" style="color: #FFFFFF;">&times;</button>
+									        <h4 class="modal-title" style="font: 20px Impact, fantasy;font-variant: small-caps;font-style: oblique;">Mentor Profile</h4>
+									      </div>
+									      <div class="modal-body" style="margin-right: 0px;">
+									        
+									      	<!--  -->
+									      	<div class="container" style="font: 20px Calibri;font-variant: small-caps;font-style: oblique; width:95%; margin: auto; ">
+
+												<div class="row" >
+
+													<div class="col-lg-3" style="text-align: center;">
+														<img class="img img-thumbnail" src="{{currentMentor.ProfilePicUrl}}" style="max-height: 250px;margin: auto;">
+													</div>
+
+													<div class="col-lg-9" style="text-align: left; padding-left: 150px;">
+														<br>
+														<span>Name: {{currentMentor.Username}}</span>
+														<br>
+														<span>Email: {{currentMentor.Email}}</span>
+														<br>
+														<span>Location: {{currentMentor.Location}}</span>
+														<br>
+														<span>Gender: {{currentMentor.Gender}}</span>
+														<br>
+														<span>Qualifications: {{currentMentor.Qualifications}}</span>
+														<br>
+													</div>
+
+												</div>
+
+												<br>
+												<br>
+
+												<div class="row" >
+
+													<div class="col-lg-6"  style="text-align: center;">
+														<button class="btn btn-primary">Connect</button>
+													</div>
+
+													<div class="col-lg-6">
+														<button class="btn btn-success" ng-click="FetchMentorQuestionBoard(currentMentor.Email)">View Question Board</button>
+													</div>
+
+												</div>
+
+												
+
+												
+
+													<div class="row" style="font: Calibri; font-variant: none; font-style:normal;margin: auto; width: 95%; " ng-if="currentMentorQuestionBoard.length != 0">
+
+														<script type="text/javascript">
+														var slideIndex = 1;
+														window.setTimeout(function(){
+															showSlides(slideIndex);
+														},1000);
+
+														
+
+														function plusSlides(n) {
+														  showSlides(slideIndex += n);
+														}
+
+														function currentSlide(n) {
+														  showSlides(slideIndex = n);
+														}
+
+														function showSlides(n) {
+														  try
+														  {
+														  	var i;
+															  var slides = document.getElementsByClassName("mySlides");
+															  if (n > slides.length) {slideIndex = 1} 
+															  if (n < 1) {slideIndex = slides.length}
+															  for (i = 0; i < slides.length; i++) {
+															      slides[i].style.display = "none"; 
+															  }
+															  
+															  slides[slideIndex-1].style.display = "block"; 
+															  }
+														  catch(e)
+														  {
+														  	console.log(e);
+														  }
+														  
+														  
+														}
+														</script>
+
+														<hr>
+
+														<div class="container" style="margin: auto; width: 100%;">
+															<div class="row" >
+
+																<div class="col-lg-6" style="">
+																	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+																</div>
+																<div class="col-lg-6" style="text-align: right;">
+																	<a class="next" onclick="plusSlides(1)" >&#10095;</a>
+																</div>
+
+															</div>
+														</div>
+
+													
+
+													<div class="slideshow-container" style="text-align: center;">
+
+														<!--  -->
+														<div ng-repeat="x in currentMentorQuestionBoard">
+															<!--  -->
+															<div class="mySlides fade1" ng-if="x.QuestionType == 'Subjective'">
+
+																<hr>
+
+																<!-- Subjective Question -->
+																<div class="row"  >
+
+																	<div class="col-lg-12" style="text-align: left; background-color: #FFC706; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+																		
+																		Subjective Question:
+																		
+																	</div>
+
+																	
+																</div>
+
+																<div class="row"  >
+
+																	<div class="col-lg-12" style="text-align: left; background-color: #000000; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+																		
+																		{{x.Question}}
+																		
+																	</div>
+
+																	
+																</div>
+
+																<div class="row" style="text-align: left; background-color: #FFC706; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" >
+
+																	<div class="col-lg-3" style="text-align: left;">
+																		
+																		<div class="chip">
+																		  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+																		  {{x.Owner.Username}}
+																		</div>
+
+																		
+																	</div>
+
+																	<div class="col-lg-9" style="text-align: right;">
+																		
+																		<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+																	</div>
+																	
+																</div>
+																<!-- Subjective Question -->
+
+															</div>
+
+															<div class="mySlides fade1" ng-if="x.QuestionType == 'MCQTrue_False'">
+
+																<hr>
+																<!-- MCQ True False -->
+
+																<div class="container" style="margin: auto; width: 95%;">
+
+																	<div class="row"  >
+
+																		<div class="col-lg-12" style="text-align: left; background-color: #4ABDAC; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+																			
+																			MCQ Question:
+																			
+																		</div>
+
+																		
+																	</div>
+
+																	<div class="row"  >
+
+																		<div class="col-lg-12" style="text-align: left; background-color: #FC4A1A; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+																			
+																			{{x.Question}}
+																			
+																		</div>
+
+																		
+																	</div>
+
+																	<div class="row" style="text-align: left; background-color: #4ABDAC; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+																		<div class="col-lg-3" style="text-align: left;">
+																			
+																			<div class="chip">
+																			  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+																			  {{x.Owner.Username}}
+																			</div>
+
+																			
+																		</div>
+
+																		<div class="col-lg-9" style="text-align: right;">
+																			
+																			<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+																		</div>
+																		
+																	</div>
+
+																	<div class="row" style="text-align: left; background-color: #FFFFFF; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+																		<hr>
+
+																		<div class="col-lg-6" style="text-align: left;">
+																			
+																			True
+																			
+																		</div>
+
+																		<div class="col-lg-6" style="text-align: left;">
+																			
+																			<span style="top: 3px;" class="glyphicon glyphicon-ok-circle text text-success" ng-if="MCQResponseTypeTrueFalse == 'True'"></span>
+
+																		</div>
+																		
+																	</div>
+
+																	<div class="row" style="text-align: left; background-color: #FFFFFF; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" >
+
+																		<hr>
+
+																		<div class="col-lg-6" style="text-align: left;">
+																			
+																			False
+																			
+																		</div>
+
+																		<div class="col-lg-6" style="text-align: left;">
+																			
+																			<span style="top: 3px;" class="glyphicon glyphicon-ok-circle text text-success" ng-if="MCQResponseTypeTrueFalse == 'False'"></span>
+
+																		</div>
+																		
+																	</div>
+
+																	
+																	
+																</div>
+
+																<!-- MCQ True False -->
+																
+
+															</div>
+
+															<div class="mySlides fade1" ng-if="x.QuestionType == 'MCQGeneric'">
+
+																<hr>
+
+																<!-- MCQ Generic -->
+																
+																<div class="container" style="margin: auto; width: 95%;">
+
+																	<div class="row"  >
+
+																		<div class="col-lg-12" style="text-align: left; background-color: #49274A; color: #FFFFFF; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+																			
+																			MCQ Question:
+																			
+																		</div>
+
+																		
+																	</div>
+
+																	<div class="row"  >
+
+																		<div class="col-lg-12" style="text-align: left; background-color: #94618E; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+																			
+																			{{x.Question}}
+																			
+																		</div>
+
+																		
+																	</div>
+
+																	<div class="row" style="text-align: left; background-color: #49274A; color: #FFFFFF; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+																		<div class="col-lg-3" style="text-align: left;">
+																			
+																			<div class="chip" style="color: #49274A">
+																			  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+																			  {{x.Owner.Username}}
+																			</div>
+
+																			
+																		</div>
+
+																		<div class="col-lg-9" style="text-align: right;">
+																			
+																			<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+																			
+
+																		</div>
+																		
+																	</div>
+
+																	<div class="row" ng-repeat="y in x.Options track by $index" style="text-align: left; background-color: #F4DECB; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+																		<hr>
+
+																		<div class="col-lg-6" style="text-align: left;">
+																			
+																			{{y}}
+																			
+																		</div>
+
+																		
+																		<br>
+																		<br>
+																		
+																	</div>
+
+																	
+																	
+																	
+																</div>
+
+																<!-- MCQ Generic -->
+																
+															</div>
+															<!--  -->
+														</div>
+																												
+														
+														<!--  -->
+
+													</div>
+
+													
+
+													
+												</div>
+	
+
+												<br>
+												
+											</div>
+									        <!--  -->
+
+									      </div>
+									      
+									    </div>
+
+									  </div>
+									</div>
+									<!-- ViewMentorModal -->
+
+<!-- PostQuestionModal -->
+									<div id="PostQuestionModal" class="modal fade" role="dialog"  style="margin-bottom: -1000px;padding-bottom: 1000px;" >
+									  <div class="modal-dialog modal-lg">
+
+									    <!-- Modal content-->
+									    <div class="modal-content" style="margin-top: 100px; margin-left: auto;margin-right: auto;">
+									      <div class="modal-header" style="background-color: #800000; color: #FFFFFF;">
+									        <button type="button" class="close" data-dismiss="modal" style="color: #FFFFFF;">&times;</button>
+									        <h4 class="modal-title" style="font: 20px Impact, fantasy;font-variant: small-caps;font-style: oblique;">Create Question</h4>
+									      </div>
+									      <div class="modal-body">
+									        
+									      	<!--  -->
+									      	<div class="">
+									      		<div class="row" >
+									      			<div style="margin: auto; width: 80%; font-size: 18px; font-family: Calibri;font-variant: none;font-style: none;">
+									      				Choose Question Type:
+
+									      				<br>
+									      				<br>
+
+										      			<select ng-model="QuestionTypeSelect" ng-change="QuestionTypeSelectChange()" class="form-control select-menu">
+										      				<option>MCQ</option>
+										      				<option>Subjective</option>
+										      			</select>
+									      				
+										      			<br>
+
+										      			<div ng-show="QuestionTypeSelectTouched && QuestionTypeSelect == 'Subjective'">
+
+										      				<div style="text-align: center;">
+										      				
+										      					<textarea class="form-control" placeholder='Enter Question' ng-model="SubjectiveQuestion" ng-change="SubjectiveQuestionChange()"></textarea>
+
+										      					<div style="font-weight: bold;" ng-if="SubjectiveQuestion.length < 5" class="text text-danger">
+										      						<br>
+										      						Subjective Question length must be minimum 5 characters
+										      						<br>
+										      					</div>
+
+										      					<br>
+
+										      					<div ng-if="Posting">
+										      						<br>
+										      						<div class="loader"></div>
+										      						<hr>
+										      						</br>
+										      					</div>	
+
+										      					<!--  -->
+										      					<hr>
+
+									      				<div class="checkbox">
+														  
+									      					Add Images: 
+									      					<br>
+									      					<br>
+														  <label><input type="checkbox" style="width: 30px; height: 30px;" ng-model="ShowGalleryFlag"></label>
+														</div>
+
+									      				<div ng-show="ShowGalleryFlag">
+
+									      					<div class="container" style="margin: auto; width: 100%;">
+					<div class="row" id="uploadrow">
+						
+
+
+						  <div class="column1" ng-repeat="x in mediaspace track by $index">
+						  	<img src="{{x.url}}" alt="" ng-click="imgModalLoad(x)" style="width:100%;" class="myImg frame">
+					
+							<div class="checkbox">
+							  <label><input type="checkbox" style="width: 30px; height: 30px;" ng-model="x.valuechecked" ng-change="CheckChanged( x )" ></label>
+							</div>
+						
+					</div>
+					
+				</div>
+				</div>
+
+									      				</div>
+										      					<!--  -->
+
+										      					<button class="btn btn-success" style="margin: auto;" ng-click="PostQuestion()"><span class="glyphicon glyphicon-send" ></span>&nbsp;&nbsp;Post</button>
+
+										      				</div>
+
+										      			</div>
+
+										      			
+										      			<div ng-show="QuestionTypeSelect == 'MCQ'">
+
+										      				<div style="text-align: center;">
+										      				
+										      					<textarea class="form-control" placeholder='Enter Question' ng-model="MCQQuestion" ng-change="MCQQuestionChange()"></textarea>
+
+										      					<div style="font-weight: bold;" ng-if="MCQQuestionError || (MCQQuestion.length < 5 && MCQQuestionTouched==true)" class="text text-danger">
+										      						<br>
+										      						MCQ Question length must be minimum 5 characters
+										      						<br>
+										      					</div>
+
+										      					<br>
+										      					<span style="text-align: left;">Response Type:</span> 
+										      					<br>
+										      					<br>
+											      				<select ng-model="MCQResponseType" ng-change="MCQResponseTypeChange()" class="form-control select-menu">
+												      				<option>True/False</option>
+												      				<option>Generic</option>	
+												      			</select>
+										      					<br>
+
+										      					<div ng-show="MCQResponseType == 'True/False'">
+
+										      						<hr>
+
+											      					Correct Option:
+
+											      					<br>
+											      					<br>	
+
+											      					<select ng-model="MCQResponseTypeTrueFalse"  class="form-control select-menu">
+													      				<option>True</option>
+													      				<option>False</option>	
+													      			</select>
+
+													      			<br>
+
+													      			<div style="text-align: left;" ng-show="MCQResponseType == 'True/False'">
+
+											      						<ul>
+												      						<li>True &nbsp;&nbsp;<span style="top: 3px;" class="glyphicon glyphicon-ok-circle text text-success" ng-if="MCQResponseTypeTrueFalse == 'True'"></span></li>
+												      						<li>False &nbsp;&nbsp;<span style="top: 3px;" class="text text-danger glyphicon glyphicon-ok-circle" ng-if="MCQResponseTypeTrueFalse == 'False'"></span></li>
+												      					</ul>
+
+											      					</div>
+
+											      					<hr>
+
+										      					</div>
+
+										      					<div ng-show="MCQResponseType == 'Generic'">
+
+										      						<hr>
+
+										      						Number of Options:
+										      						<br>
+										      						<br>
+
+													      			<select ng-model="MCQResponseTypeGenericNoOfOptions" ng-change="MCQResponseTypeGenericNoOfOptionsChange()" class="form-control select-menu">
+													      				<option>2</option>
+													      				<option>3</option>
+													      				<option>4</option>
+													      			</select>
+
+													      			<br>
+											      					Correct Option:
+
+											      					<br>
+											      					<br>
+
+											      					<select ng-model="MCQResponseTypeGenericCorrectOption" class="form-control select-menu">
+													      				<option ng-show="1 <= MCQResponseTypeGenericNoOfOptions">1</option>
+													      				<option ng-show="2 <= MCQResponseTypeGenericNoOfOptions">2</option>
+													      				<option ng-show="3 <= MCQResponseTypeGenericNoOfOptions">3</option>
+													      				<option ng-show="4 <= MCQResponseTypeGenericNoOfOptions">4</option>
+													      			</select>
+
+													      			<br>
+
+													      			<div style="text-align: left;">
+
+													      			<hr>
+
+													      			<div class="continer">
+													      				<div class="row">
+
+													      					<div class="col-lg-6">
+
+													      						<input type="text" ng-model="Option1Value" placeholder="Enter Option 1" class="form-control" ng-show="1 <= MCQResponseTypeGenericNoOfOptions" ng-change="OptionError = false"/>
+
+													      					</div>
+													      					<div class="col-lg-6" style="text-align: center;">
+													      						<span style="top: 10px;" class="text text-success glyphicon glyphicon-ok-circle" ng-if="MCQResponseTypeGenericCorrectOption == '1'"></span>
+													      					</div>
+
+													      				</div>
+													      				<hr>
+													      				<div class="row">
+
+													      					<div class="col-lg-6">
+
+													      						<input type="text" placeholder="Enter Option 2" class="form-control" ng-model="Option2Value"  ng-show="2 <= MCQResponseTypeGenericNoOfOptions" ng-change="OptionError = false"/>
+
+													      					</div>
+													      					<div class="col-lg-6" style="text-align: center;">
+													      						<span style="top: 10px;" class="text text-success glyphicon glyphicon-ok-circle" ng-if="MCQResponseTypeGenericCorrectOption == '2'"></span>
+													      					</div>
+
+													      				</div>
+													      				<hr>
+													      				<div class="row">
+
+													      					<div class="col-lg-6">
+
+													      						<input type="text" placeholder="Enter Option 3" class="form-control" ng-model="Option3Value"  ng-show="3 <= MCQResponseTypeGenericNoOfOptions" ng-change="OptionError = false"/>
+
+													      					</div>
+													      					<div class="col-lg-6" style="text-align: center;">
+													      						<span style="top: 10px;" class="text text-success glyphicon glyphicon-ok-circle" ng-if="MCQResponseTypeGenericCorrectOption == '3'"></span>
+													      					</div>
+
+													      				</div>
+													      				<hr>
+													      				<div class="row">
+
+													      					<div class="col-lg-6">
+
+													      						<input type="text" placeholder="Enter Option 4" class="form-control" ng-model="Option4Value"  ng-show="4 <= MCQResponseTypeGenericNoOfOptions" ng-change="OptionError = false"/>
+
+													      					</div>
+													      					<div class="col-lg-6" style="text-align: center;">
+													      						<span style="top: 10px;" class="text text-success glyphicon glyphicon-ok-circle" ng-if="MCQResponseTypeGenericCorrectOption == '4'"></span>
+													      					</div>
+
+													      				</div>
+													      				
+													      			</div>
+
+											      					
+											      					
+											      					</div>
+
+											      					<hr>
+
+										      					</div>
+
+										      					<div ng-show="OptionError">
+										      						<br>
+										      						<span class="text text-danger">Options Cannot Be Empty</span>
+										      						<hr>
+										      						</br>
+										      					</div>
+
+										      					<div ng-if="Posting">
+										      						<br>
+										      						<div class="loader"></div>
+										      						<hr>
+										      						</br>
+										      					</div>	
+										      				
+										      					<!--  -->
+										      					<hr>
+
+									      				<div class="checkbox">
+														  
+									      					Add Images: 
+									      					<br>
+									      					<br>
+														  <label><input type="checkbox" style="width: 30px; height: 30px;" ng-model="ShowGalleryFlag"></label>
+														</div>
+
+									      				<div ng-show="ShowGalleryFlag">
+
+									      					<div class="container" style="margin: auto; width: 100%;">
+					<div class="row" id="uploadrow">
+						
+
+
+						  <div class="column1" ng-repeat="x in mediaspace track by $index">
+						  	<img src="{{x.url}}" alt="" ng-click="imgModalLoad(x)" style="width:100%;" class="myImg frame">
+					
+							<div class="checkbox">
+							  <label><input type="checkbox" style="width: 30px; height: 30px;" ng-model="x.valuechecked" ng-change="CheckChanged( x )" ></label>
+							</div>
+						
+					</div>
+					
+				</div>
+				</div>
+
+									      				</div>
+										      					<!--  -->
+
+										      					<button class="btn btn-success" style="margin: auto;" ng-click="PostQuestion()"><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;Post</button>
+
+										      					<br><br>
+
+										      				</div>
+
+										      			</div>
+
+										      			<div id="snackbar3">Some text some message..</div>
+
+									      			</div>
+
+									      		</div>
+
+									      	</div>
+
+											<!--  -->
+											
+									      </div>
+
+
+									    </div>
+
+									    <br><br><br>
+
+									  </div>
+									</div>
+									<!-- PostQuestionModal -->
+
+<!-- GreenhornPostQuestionModal -->
+									<div id="GreenhornPostQuestionModal" class="modal fade" role="dialog"  style="margin-bottom: -1000px;padding-bottom: 1000px;" >
+									  <div class="modal-dialog modal-lg">
+
+									    <!-- Modal content-->
+									    <div class="modal-content" style="margin-top: 100px; margin-left: auto;margin-right: auto;">
+									      <div class="modal-header" style="background-color: #800000; color: #FFFFFF;">
+									        <button type="button" class="close" data-dismiss="modal" style="color: #FFFFFF;">&times;</button>
+									        <h4 class="modal-title" style="font: 20px Impact, fantasy;font-variant: small-caps;font-style: oblique;">Post Question</h4>
+									      </div>
+									      <div class="modal-body">
+									        
+									      	<!--  -->
+									      	<div class="container" style="margin: auto; width: 100%;">
+									      		<div class="row"  >
+									      			<div class="col-lg-3" style="font-size: 18px; font-family: Calibri;font-variant: none;font-style: none; padding-top: 7px; text-align: right;">
+									      				Questions Left:
+
+									      			</div>
+
+									      			<div class="col-lg-9" style="font-size: 18px; font-family: Calibri;font-variant: none;font-style: none;">
+														<span class="btn btn-warning" > {{currentUser.QuestionsLeft}} </span>
+
+									      			</div>
+
+									      		</div>
+
+									      		<br>
+
+									      		<div class="row" style="text-align: center;" ng-show="currentUser.QuestionsLeft != 0">
+									      			<div style="margin: auto; width: 80%; font-size: 18px; font-family: Calibri;font-variant: none;font-style: none;">
+									      				Post a question:
+
+									      				<br>
+									      				<br>
+
+									      				<hr>
+
+									      				<textarea ng-model="GreenhornPostQuestion" ng-change="ValidateGreenhornPostQuestion()" class="form-control" placeholder="Enter Question"></textarea>
+
+									      				<hr>
+
+									      				<div class="checkbox">
+														  
+									      					Add Images: 
+									      					<br>
+									      					<br>
+														  <label><input type="checkbox" style="width: 30px; height: 30px;" ng-model="ShowGalleryFlag"></label>
+														</div>
+
+									      				<div ng-show="ShowGalleryFlag">
+
+									      					<div class="container" style="margin: auto; width: 100%;">
+					<div class="row" id="uploadrow">
+						
+
+
+						  <div class="column1" ng-repeat="x in mediaspace track by $index">
+						  	<img src="{{x.url}}" alt="" ng-click="imgModalLoad(x)" style="width:100%;" class="myImg frame">
+					
+							<div class="checkbox">
+							  <label><input type="checkbox" style="width: 30px; height: 30px;" ng-model="x.valuechecked" ng-change="CheckChanged( x )" ></label>
+							</div>
+						
+					</div>
+					
+				</div>
+				</div>
+
+									      				</div>
+									      				
+									      				<div style="font-weight: bold;" ng-show="GreenhornPostQuestionError" class="text text-danger">
+										      						<br>
+										      						Question length must be minimum 5 characters
+										      						<br>
+										      			</div>
+									      				
+									      				<br>
+										      			
+								      					<div ng-if="GreenhornPostQuestionPosting">
+								      						<br>
+								      						<div class="loader"></div>
+								      						<hr>
+								      						<br>
+								      					</div>	
+								      					
+								      					<button class="btn btn-success" style="margin: auto; width: 80%;" ng-click="PostGreenhornQuestion()" ng-disabled="GreenhornPostQuestionError || GreenhornPostQuestionTouched == false"><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;Post</button>
+
+								      					<br><br>
+
+
+										      			</div>
+
+										      			<div id="snackbar3">Some text some message..</div>
+
+									      			</div>
+
+									      		</div>
+
+									      		<div class="row" style="text-align: center;" ng-show="currentUser.QuestionsLeft == 0">
+									      			<div style="margin: auto; width: 80%; font-size: 28px; font-family: Calibri;font-variant: none;font-style: none; color: #800000; font-weight: bold; font-variant: none;">
+									      				All Questions Consumed
+
+									      				
+									      			</div>
+
+									      			<!-- Show Offers -->
+									      			<br>
+									      			<br>
+
+									      			<div class="row">
+													  <div class="column">
+													    <div class="card">
+													        <h2>5 New Questions</h2>
+													        <p>@ 150 /-  INR</p>
+													        <p><button class="button">Buy</button></p>
+													      
+													    </div>
+													  </div>
+
+													  <div class="column">
+													    <div class="card">
+													        <h2>20 New Questions</h2>
+													        <p>@ 570 /-  INR</p>
+													        <p><button class="button">Buy</button></p>
+													      
+													    </div>
+													  </div>
+
+													  <div class="column">
+													    <div class="card">
+													        <h2>50 New Questions</h2>
+													        <p>@ 1350 /-  INR</p>
+													        <p><button class="button">Buy</button></p>
+													      
+													    </div>
+													  </div>
+													</div>
+
+									      			<!-- Show Offers -->
+
+									      		</div>
+
+									      	</div>
+
+											<!--  -->
+											
+									      </div>
+
+
+									    </div>
+
+									    <br><br><br>
+
+									  </div>
+									</div>
+									<!-- GreenhornPostQuestionModal -->
+
+<div class="body" id="body_div">
+	
+		<div class="container center" id="index_div_row">
+			
+			<br>
+			
+			<div class="row">
+				<div class="col-lg-12" style="font: small-caps 28px/50px Calibri, sans-serif; color: rgba(28,181,223,0.8); background-color: rgba(255,255,255,1.0); border-bottom: 1px solid rgb(128,0,0); text-align: left; padding-left: 15px; ">
+					Welcome {{currentUser.Username}}
+				</div>
+			</div>
+
+			<div class="row well" style="border-bottom: 1px solid rgb(128,0,0); text-align: center; padding: 20px;" ng-show="Loading">
+			
+				<div class="col-lg-12" style="background-color: #FFFFFF;">
+					<br>
+					<div class="loader"></div>
+					<br>
+					Loading...
+					<br>
+					<br>
+				</div>
+
+			</div>
+						
+			<div style="height: 20px;"></div>
+			
+			<div class="wrapper" data-anim="base wrapper">
+			  <div class="circle" data-anim="base left"></div>
+			  <div class="circle" data-anim="base right"></div>
+			</div>
+			
+			<div class="row" ng-show="currentUser.Type == 'Greenhorn' && Loading == false && LoadNotStarted == false " >
+			
+				<div class="tab">
+				  <button class="tablinks" onclick="openTab(event, 'Mentors')" id="MentorsButton">Mentors &nbsp;&nbsp;<span class="btn btn-success">{{data.length}}</span></button>
+				  <button class="tablinks" onclick="openTab(event, 'Questions')">Questions &nbsp;&nbsp;<span class="btn btn-success">{{questionboard.length}}</span></button>
+				  <button class="tablinks" onclick="openTab(event, 'My Questions')">My Questions &nbsp;&nbsp;<span class="btn btn-success">{{myquestions.length}}</span></button>
+				</div>
+
+				<div id="Mentors" class="tabcontent">
+				  
+					<!-- Mentors -->
+					<div class="col-lg-12">
+				
+					<!--  -->
+			
+					<br>
+				
+					<table class="table center myprofile" >
+					
+						<tr>
+							<div class="col-lg-12" style="font: small-caps 28px/50px Calibri, sans-serif; color: rgba(28,181,223,0.8); background-color: rgba(255,255,255,1.0); border-bottom: 1px solid rgb(128,0,0); text-align: left; padding-left: 15px; margin-bottom: 20px; ">
+								Our Mentors
+							</div>
+							<br>
+						</tr>
+
+						<br>
+
+						<tr>
+							<input type='text' ng-model="searchkey" class="form-control" placeholder="Search..." style="font:  16px Calibri, sans-serif;"/>
+						</tr>
+
+						<div style="height: 20px;"></div>
+
+						<tr ng-repeat="x in data|filter : searchkey">
+							
+							<td colspan="2" style="text-align: center;" class="MentorProfile">
+								
+								<br>
+								<div class="container">
+
+									<div class="row" ng-click="ViewMentorProfile(x.index)">
+
+										<div class="col-lg-6">
+											<img class="img img-thumbnail" src="{{x.ProfilePicUrl}}" style="max-height: 150px;">
+										</div>
+
+										<div class="col-lg-6" style="text-align: left;">
+											<br>
+											<span>Name: {{x.Username}}</span>
+											<br>
+											<span>Email: {{x.Email}}</span>
+											<br>
+										</div>
+
+									</div>
+
+								</div>
+
+								<br>
+								<br>
+							</td>
+
+							
+						</tr>
+						
+					</table>
+					
+					<!--  -->
+					
+					</div>
+
+					<!-- Mentors -->
+
+				</div>
+
+				<div id="Questions" class="tabcontent">
+				  
+					<div class="row" ng-show="currentUser.Type == 'Greenhorn' && Loading == false && LoadNotStarted == false " >
+			
+						<div class="col-lg-12">
+						
+						<!--  -->
+					
+						<br>
+					
+						<table class="table center myprofile" >
+						
+							<tr>
+								<div class="col-lg-12" style="font: small-caps 28px/50px Calibri, sans-serif; color: rgba(28,181,223,0.8); background-color: rgba(255,255,255,1.0); border-top: 1px solid rgb(128,0,0); border-bottom: 1px solid rgb(128,0,0); text-align: left; margin-top: 20px; margin-bottom: 20px; padding-bottom: 15px; padding-top: 15px; text-align: center; ">
+									<div > <button class="btn btn-primary" style="margin: auto;" data-toggle="modal" data-target="#GreenhornPostQuestionModal"> <span class="glyphicon glyphicon-question-sign" style="top: 3px;"></span> &nbsp; Post Question</button> </div>
+								</div>
+								<br>
+							</tr>
+
+							<br>
+
+						
+							<div ng-show="questionboard.length != 0">
+								<input type='text' ng-model="searchkey" class="form-control" placeholder="Search..." style="font:  16px Calibri, sans-serif; margin: auto; width: 80%;"/>
+								<br>
+							</div>
+
+							<div ng-show="questionboard.length == 0">
+								
+								<div class="well" >
+									No Questions Yet
+								</div>
+
+							</div>
+
+							<div style="height: 20px;"></div>
+
+							<tr ng-repeat="x in questionboard|filter : searchkey | orderBy : 'DateUpdated' : reverse">
+								
+								<td colspan="2" style="text-align: center; " ng-if=" x.QuestionType == 'Subjective' ">
+									
+									<br>
+									<div class="container">
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #FFC706; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+												
+												Subjective Question:
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #000000; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+												
+												{{x.Question}}
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #FFC706; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" >
+
+											<div class="col-lg-3" style="text-align: left;">
+												
+												<div class="chip">
+												  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+												  {{x.Owner.Username}}
+												</div>
+
+												
+											</div>
+
+											<div class="col-lg-9" style="text-align: right;">
+												
+												<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+
+											</div>
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 0px 0px;" ng-show="x.Media.length != 0 && x.Media.length != undefined" >
+
+											<hr>
+
+											<span>&nbsp;&nbsp;Question Media:</span>
+
+											{{x.Media.length}}
+
+											<hr>
+
+											<div class="container" style="margin: auto; width: 100%;">
+												<div class="row" id="uploadrow">
+													
+													  <div class="column1" ng-repeat="y in x.Media track by $index">
+														<img src="{{y}}" ng-click="imgModalLoad1(y,x)" alt="" style="width:100%;" class="myImg frame" onload="this.width*=2;this.onload=null;">
+												
+														
+												</div>
+												
+											</div>
+											
+										</div>
+
+										
+									</div>
+
+									<br>
+									<br>
+								</td>
+
+								<td colspan="2" style="text-align: center; " ng-if=" x.Type == 'GreenhornQuestion' ">
+									
+									<br>
+									<div class="container">
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #DCD0C0; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+												
+												Greenhorn Question:
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #373737; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+												
+												{{x.Question}}
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+											<div class="col-lg-3" style="text-align: left;">
+												
+												<div class="chip">
+												  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+												  {{x.Owner.Username}}
+												</div>
+
+												
+											</div>
+
+											<div class="col-lg-9" style="text-align: right;">
+												
+												<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+												<span ng-show="x.Owner.Email == currentUser.Email">
+													&nbsp;&nbsp;
+
+													<button class="btn btn-danger" ng-click="DeleteQuestion(x)">&times;</button>
+												</span>
+												
+											</div>
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" ng-show="x.Media.length != 0 && x.Media.length != undefined" >
+
+											<hr>
+
+											<span>&nbsp;&nbsp;Question Media:</span>
+
+											{{x.Media.length}}
+
+											<hr>
+
+											<div class="container" style="margin: auto; width: 100%;">
+												<div class="row" id="uploadrow">
+													
+													  <div class="column1" ng-repeat="y in x.Media track by $index">
+														<img src="{{y}}" ng-click="imgModalLoad1(y,x)" alt="" style="width:100%;" class="myImg frame" onload="this.width*=2;this.onload=null;">
+												
+														
+												</div>
+												
+											</div>
+											
+										</div>
+
+										
+									</div>
+
+									<br>
+									<br>
+								</td>
+
+								<td colspan="2" style="text-align: center; " ng-if=" x.QuestionType == 'MCQTrue_False' ">
+									
+									<br>
+									<div class="container">
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #4ABDAC; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+												
+												MCQ Question:
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #FC4A1A; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+												
+												{{x.Question}}
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #4ABDAC; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+											<div class="col-lg-3" style="text-align: left;">
+												
+												<div class="chip">
+												  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+												  {{x.Owner.Username}}
+												</div>
+
+												
+											</div>
+
+											<div class="col-lg-9" style="text-align: right;">
+												
+												<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+												
+											</div>
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 0px 0px;" ng-show="x.Media.length != 0 && x.Media.length != undefined" >
+
+											<hr>
+
+											<span>&nbsp;&nbsp;Question Media:</span>
+
+											{{x.Media.length}}
+
+											<hr>
+
+											<div class="container" style="margin: auto; width: 100%;">
+												<div class="row" id="uploadrow">
+													
+													  <div class="column1" ng-repeat="y in x.Media track by $index">
+														<img src="{{y}}" ng-click="imgModalLoad1(y,x)" alt="" style="width:100%;" class="myImg frame" onload="this.width*=2;this.onload=null;">
+												
+														
+												</div>
+												
+											</div>
+											
+										</div>
+									</div>
+
+
+										<div class="row" style="text-align: left; background-color: #FFFFFF; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+											<hr>
+
+											<div class="col-lg-6" style="text-align: left;">
+												
+												True
+												
+											</div>
+
+											<div class="col-lg-6" style="text-align: left;">
+												
+												<span style="top: 3px;" class="glyphicon glyphicon-ok-circle text text-success" ng-if="MCQResponseTypeTrueFalse == 'True'"></span>
+
+											</div>
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #FFFFFF; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" >
+
+											<hr>
+
+											<div class="col-lg-6" style="text-align: left;">
+												
+												False
+												
+											</div>
+
+											<div class="col-lg-6" style="text-align: left;">
+												
+												<span style="top: 3px;" class="glyphicon glyphicon-ok-circle text text-success" ng-if="MCQResponseTypeTrueFalse == 'False'"></span>
+
+											</div>
+											
+										</div>
+
+										
+										
+									</div>
+
+									<br>
+									<br>
+								</td>
+
+								<td colspan="2" style="text-align: center; " ng-if=" x.QuestionType == 'MCQGeneric' ">
+									
+									<br>
+									<div class="container">
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #49274A; color: #FFFFFF; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+												
+												MCQ Question:
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #94618E; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+												
+												{{x.Question}}
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #49274A; color: #FFFFFF; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+											<div class="col-lg-3" style="text-align: left;">
+												
+												<div class="chip" style="color: #49274A">
+												  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+												  {{x.Owner.Username}}
+												</div>
+
+												
+											</div>
+
+											<div class="col-lg-9" style="text-align: right;">
+												
+												<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+
+											</div>
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 0px 0px;" ng-show="x.Media.length != 0 && x.Media.length != undefined" >
+
+											<hr>
+
+											<span>&nbsp;&nbsp;Question Media:</span>
+
+											{{x.Media.length}}
+
+											<hr>
+
+											<div class="container" style="margin: auto; width: 100%;">
+												<div class="row" id="uploadrow">
+													
+													  <div class="column1" ng-repeat="y in x.Media track by $index">
+														<img src="{{y}}" ng-click="imgModalLoad1(y,x)" alt="" style="width:100%;" class="myImg frame" onload="this.width*=2;this.onload=null;">
+												
+														
+												</div>
+												
+											</div>
+											
+										</div>
+									</div>
+
+
+										<div class="row" ng-repeat="y in x.Options track by $index" style="text-align: left; background-color: #F4DECB; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+											<hr>
+
+											<div class="col-lg-6" style="text-align: left;">
+												
+												{{y}}
+												
+											</div>
+
+											<div class="col-lg-6" style="text-align: left;">
+												
+												<span style="top: 3px;" class="glyphicon glyphicon-ok-circle text text-success" ng-if="$index + 1 == x.CorrectOption"></span>
+
+											</div>
+											<br>
+											<br>
+											
+										</div>
+
+										
+										
+										
+									</div>
+
+									<br>
+									<br>
+								</td>
+
+								
+								
+							</tr>
+
+						</table>
+						
+						
+
+						<!--  -->
+						
+						</div>
+					
+						<script type="text/javascript">
+							window.setTimeout(function()
+							{
+								document.getElementById("body_div").style.height = (document.getElementById("index_div_row").offsetHeight + 10) + 'px'; 
+							}, 200);
+							
+						</script>
+
+					</div>		
+
+				</div>
+
+				<div id="My Questions" class="tabcontent">
+
+					<div class="container">
+
+							<div class="row">
+
+								<div class="col-lg-12">
+
+									<br>
+
+									<input type="text" class="form-control" placeholder="Enter Search Key" ng-model="searchgreenhornquestions" />
+
+									<br>
+
+								</div>
+
+							</div>
+
+							<div class="row" ng-repeat="x in myquestions| filter: searchgreenhornquestions">
+
+								<div class="col-lg-12">
+
+
+									<!--  -->
+									<br>
+									<div class="container">
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #DCD0C0; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+												
+												Greenhorn Question:
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #373737; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+												
+												{{x.Question}}
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+											<div class="col-lg-3" style="text-align: left;">
+												
+												<div class="chip">
+												  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+												  {{x.Owner.Username}}
+												</div>
+
+												
+											</div>
+
+											<div class="col-lg-9" style="text-align: right;">
+												
+												<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+												<span ng-show="x.Owner.Email == currentUser.Email">
+													&nbsp;&nbsp;
+
+													<button class="btn btn-danger" ng-click="DeleteQuestion(x)">&times;</button>
+												</span>
+												
+											</div>
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" ng-show="x.Media.length != 0 && x.Media.length != undefined" >
+
+											<hr>
+
+											<span>&nbsp;&nbsp;Question Media:</span>
+
+											{{x.Media.length}}
+
+											<hr>
+
+											<div class="container" style="margin: auto; width: 100%;">
+												<div class="row" id="uploadrow">
+													
+													  <div class="column1" ng-repeat="y in x.Media track by $index">
+														<img src="{{y}}" ng-click="imgModalLoad1(y,x)" alt="" style="width:100%;" class="myImg frame" onload="this.width*=2;this.onload=null;">
+												
+														
+												</div>
+												
+											</div>
+											
+										</div>
+
+										
+									</div>
+
+									<div class="row" style="text-align: left; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;"  >
+
+											<hr>
+
+											<div class="container well" style="margin: auto; width: 80%; padding: 20px; text-align: center;" ng-if="x.Responses == undefined">
+
+												No Responses Yet
+
+												<br>
+
+											</div>
+
+											<div class="container well" style="margin: auto; width: 80%; padding: 20px; text-align: center;" ng-if="x.Responses != undefined">
+
+												<div class="container" style="margin: auto; width: 90%;">
+
+													<div class="row" style="border: 0px solid #000000;  padding: 20px; margin: 5px;border-radius: 5px; box-shadow: 2px 2px 10px #AAAAAA;" ng-repeat="z in x.Responses">
+
+														<div class="col-lg-4">
+														
+															<img src="{{z.Owner.ProfilePicUrl}}" style="max-width: 80px;">
+
+
+														</div>
+														<div class="col-lg-4" style="text-align: center;">
+															<br>
+
+															Mentor Name:{{z.Owner.Username}}
+															<br>
+															<button class="btn btn-link" ng-click="viewMentorResponseOnModal(z)">View Response</button>
+
+														</div>
+
+														<div class="col-lg-4" style="text-align: center;" ng-if="z.Owner.rating == undefined || z.Owner.rating == 0">
+														
+															Current Rating: 
+
+															<br>
+	
+															No ratings so far.
+
+															<div class="star-rating" star-rating1 rating-value='0' data-max="5" on-rating-selected=""></div>
+
+														</div>
+
+														<div class="col-lg-4" style="text-align: center;" ng-if="z.Owner.rating != undefined && z.Owner.rating != 0">
+														
+															Current Rating: {{z.Owner.rating}}
+
+															<br>
+
+															<div class="star-rating" star-rating1  rating-value='z.Owner.rating' data-max="5" on-rating-selected=""></div>
+																
+														</div>														
+
+
+													</div>
+
+												</div>
+
+												<br>
+
+											</div>
+											
+									</div>
+
+										
+									</div>
+
+									<br>
+									<br>
+									<!--  -->
+
+								</div>
+
+							</div>
+
+						</div>
+
+				</div>
+
+				
+
+				
+				
+			
+			</div>
+			
+			<script type="text/javascript">
+					window.setTimeout( function(){
+						$("#MentorsButton").trigger('click');
+						resizing();
+					} ,2000);
+					
+				</script>
+
+				
+				<!--  -->
+			
+				<div class="row" ng-show="currentUser.Type == 'Mentor' && Loading == false && LoadNotStarted == false " >
+			
+					<div class="tab">
+					  <button class="tablinks" onclick="openTab(event, 'Your Questions')" id="YourQuestionsButton">Your Questions &nbsp;&nbsp;<span class="btn btn-success">{{questionboard.length}}</span></button>
+					  <button class="tablinks" onclick="openTab(event, 'Questions from Greenhorns')">Questions from Greenhorns &nbsp;&nbsp;<span class="btn btn-success">{{greenhornquestions.length}}</span></button>
+					</div>
+
+					<script type="text/javascript">
+						window.setTimeout( function(){
+							$("#YourQuestionsButton").trigger('click');
+							resizing();
+						} ,200);
+						
+					</script>
+
+					<div id="Your Questions" class="tabcontent">
+						
+						<!-- Your Questions -->
+						<div class="col-lg-12">
+				
+				<!--  -->
+			
+				<br>
+			
+				<table class="table center myprofile" style="margin: auto;" >
+				
+					<tr>
+						<div class="col-lg-12" style="font: small-caps 28px/50px Calibri, sans-serif; color: rgba(28,181,223,0.8); background-color: rgba(255,255,255,1.0); border-top: 1px solid rgb(128,0,0); border-bottom: 1px solid rgb(128,0,0); text-align: left; margin-top: 20px; margin-bottom: 20px; padding-bottom: 15px; padding-top: 15px; text-align: center; ">
+							<div > <button class="btn btn-primary" style="margin: auto;" data-toggle="modal" data-target="#PostQuestionModal"> <span class="glyphicon glyphicon-question-sign" style="top: 3px;"></span> &nbsp; Post Question</button> </div>
+						</div>
+						<br>
+					</tr>
+
+					<br>
+
+				
+					<tr>
+						<input type='text' ng-model="searchkey" class="form-control" placeholder="Search..." style="font:  16px Calibri, sans-serif;"/>
+					</tr>
+
+					<div style="height: 20px;"></div>
+
+					<tr ng-repeat="x in questionboard|filter : searchkey | orderBy : 'index' : reverse" >
+						
+						<td colspan="1" style="text-align: center; " ng-if=" x.QuestionType == 'Subjective' ">
+							
+							<br>
+							<div class="container" style="">
+
+								<div class="row"  >
+
+									<div class="col-lg-12" style="text-align: left; background-color: #FFC706; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+										
+										Subjective Question:
+										
+									</div>
+
+									
+								</div>
+
+								<div class="row"  >
+
+									<div class="col-lg-12" style="text-align: left; background-color: #000000; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+										
+										{{x.Question}}
+										
+									</div>
+
+									
+								</div>
+
+								<div class="row" style="text-align: left; background-color: #FFC706; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 0px 0px;" >
+
+									<div class="col-lg-3" style="text-align: left;">
+										
+										<div class="chip">
+										  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+										  {{x.Owner.Username}}
+										</div>
+
+										
+									</div>
+
+									<div class="col-lg-9" style="text-align: right;">
+										
+										<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+										&nbsp;&nbsp;
+
+										<button class="btn btn-danger" ng-click="DeleteQuestion(x)">&times;</button>
+
+									</div>
+									
+								</div>
+
+								<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" ng-show="x.Media.length != 0 && x.Media.length != undefined" >
+
+											<hr>
+
+											<span>&nbsp;&nbsp;Question Media:</span>
+
+											{{x.Media.length}}
+
+											<hr>
+
+											<div class="container" style="margin: auto; width: 100%;">
+												<div class="row" id="uploadrow">
+													
+													  <div class="column1" ng-repeat="y in x.Media track by $index">
+														<img src="{{y}}" ng-click="imgModalLoad1(y,x)" alt="" style="width:100%;" class="myImg frame" onload="this.width*=2;this.onload=null;">
+												
+														
+												</div>
+												
+											</div>
+											
+										</div>
+
+										
+									</div>								
+								
+							</div>
+
+							<br>
+							<br>
+						</td>
+
+						<td colspan="1" style="text-align: center; " ng-if=" x.QuestionType == 'MCQTrue_False' ">
+							
+							<br>
+							<div class="container" style=" margin: auto;" >
+
+								<div class="row"  >
+
+									<div class="col-lg-12" style="text-align: left; background-color: #4ABDAC; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+										
+										MCQ Question:
+										
+									</div>
+
+									
+								</div>
+
+								<div class="row"  >
+
+									<div class="col-lg-12" style="text-align: left; background-color: #FC4A1A; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+										
+										{{x.Question}}
+										
+									</div>
+
+									
+								</div>
+
+								<div class="row" style="text-align: left; background-color: #4ABDAC; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+									<div class="col-lg-3" style="text-align: left;">
+										
+										<div class="chip">
+										  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+										  {{x.Owner.Username}}
+										</div>
+
+										
+									</div>
+
+									<div class="col-lg-9" style="text-align: right;">
+										
+										<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+										&nbsp;&nbsp;
+
+										<button class="btn btn-danger" ng-click="DeleteQuestion(x)" >&times;</button>
+
+									</div>
+									
+								</div>
+
+								<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 0px 0px;" ng-show="x.Media.length != 0 && x.Media.length != undefined" >
+
+											<hr>
+
+											<span>&nbsp;&nbsp;Question Media:</span>
+
+											{{x.Media.length}}
+
+											<hr>
+
+											<div class="container" style="margin: auto; width: 100%;">
+												<div class="row" id="uploadrow">
+													
+													  <div class="column1" ng-repeat="y in x.Media track by $index">
+														<img src="{{y}}" ng-click="imgModalLoad1(y,x)" alt="" style="width:100%;" class="myImg frame" onload="this.width*=2;this.onload=null;">
+												
+														
+												</div>
+												
+											</div>
+											
+										</div>
+
+										
+									</div>
+
+								<div class="row" style="text-align: left; background-color: #FFFFFF; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+									<hr>
+
+									<div class="col-lg-6" style="text-align: left;">
+										
+										True
+										
+									</div>
+
+									<div class="col-lg-6" style="text-align: left;">
+										
+										<span style="top: 3px;" class="glyphicon glyphicon-ok-circle text text-success" ng-if="x.CorrectOption == 'True'"></span>
+
+									</div>
+									
+								</div>
+
+								<div class="row" style="text-align: left; background-color: #FFFFFF; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" >
+
+									<hr>
+
+									<div class="col-lg-6" style="text-align: left;">
+										
+										False
+										
+									</div>
+
+									<div class="col-lg-6" style="text-align: left;">
+										
+										<span style="top: 3px;" class="glyphicon glyphicon-ok-circle text text-success" ng-if="x.CorrectOption == 'False'"></span>
+
+									</div>
+									
+								</div>
+
+								
+								
+							</div>
+
+							<br>
+							<br>
+						</td>
+
+						<td colspan="2" style="text-align: center; " ng-if=" x.QuestionType == 'MCQGeneric' ">
+							
+							<br>
+							<div class="container">
+
+								<div class="row"  >
+
+									<div class="col-lg-12" style="text-align: left; background-color: #49274A; color: #FFFFFF; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+										
+										MCQ Question:
+										
+									</div>
+
+									
+								</div>
+
+								<div class="row"  >
+
+									<div class="col-lg-12" style="text-align: left; background-color: #94618E; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+										
+										{{x.Question}}
+										
+									</div>
+
+									
+								</div>
+
+								<div class="row" style="text-align: left; background-color: #49274A; color: #FFFFFF; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+									<div class="col-lg-3" style="text-align: left;">
+										
+										<div class="chip" style="color: #49274A">
+										  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+										  {{x.Owner.Username}}
+										</div>
+
+										
+									</div>
+
+									<div class="col-lg-9" style="text-align: right;">
+										
+										<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+										&nbsp;&nbsp;
+
+										<button class="btn btn-danger" ng-click="DeleteQuestion(x)">&times;</button>
+
+									</div>
+									
+								</div>
+
+								<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" ng-show="x.Media.length != 0 && x.Media.length != undefined" >
+
+											<hr>
+
+											<span>&nbsp;&nbsp;Question Media:</span>
+
+											{{x.Media.length}}
+
+											<hr>
+
+											<div class="container" style="margin: auto; width: 100%;">
+												<div class="row" id="uploadrow">
+													
+													  <div class="column1" ng-repeat="y in x.Media track by $index">
+														<img src="{{y}}" ng-click="imgModalLoad1(y,x)" alt="" style="width:100%;" class="myImg frame" onload="this.width*=2;this.onload=null;">
+												
+														
+												</div>
+												
+											</div>
+											
+										</div>
+
+										
+									</div>
+
+								<div class="row" ng-repeat="y in x.Options track by $index" style="text-align: left; background-color: #F4DECB; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+									<hr>
+
+									<div class="col-lg-6" style="text-align: left;">
+										
+										{{y}}
+										
+									</div>
+
+									<div class="col-lg-6" style="text-align: left;">
+										
+										<span style="top: 3px;" class="glyphicon glyphicon-ok-circle text text-success" ng-if="$index + 1 == x.CorrectOption"></span>
+
+									</div>
+									<br>
+									<br>
+									
+								</div>
+
+								
+								
+								
+							</div>
+
+							<br>
+							<br>
+						</td>
+
+						
+						
+					</tr>
+
+				</table>
+				
+				<!--  -->
+				
+				</div>
+						<!-- Your Questions -->
+
+					</div>
+
+					<div id="Questions from Greenhorns" class="tabcontent">
+						
+						<div class="container">
+
+							<div class="row">
+
+								<div class="col-lg-12">
+
+									<br>
+
+									<input type="text" class="form-control" placeholder="Enter Search Key" ng-model="searchgreenhornquestions" />
+
+									<br>
+
+								</div>
+
+							</div>
+
+							<div class="row" ng-repeat="x in greenhornquestions | filter : searchgreenhornquestions">
+
+								<div class="col-lg-12">
+
+
+									<!--  -->
+									<br>
+									<div class="container">
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #DCD0C0; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; font: 18px Calibri;font-variant: small-caps;font-style: oblique; border-radius: 10px 10px 0px 0px;">
+												
+												Greenhorn Question:
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row"  >
+
+											<div class="col-lg-12" style="text-align: left; background-color: #373737; color: #FFFFFF; box-shadow: 2px 2px 5px #333333; padding: 10px;">
+												
+												{{x.Question}}
+												
+											</div>
+
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px;" >
+
+											<div class="col-lg-3" style="text-align: left;">
+												
+												<div class="chip">
+												  <img src="{{x.Owner.ProfilePicUrl}}" class="img-thumbnail" alt="{{x.Owner.Username}}" width="96" height="96">
+												  {{x.Owner.Username}}
+												</div>
+
+												
+											</div>
+
+											<div class="col-lg-9" style="text-align: right;">
+												
+												<span style="margin-top: 15px;font: 18px Calibri;font-variant: small-caps;font-style: oblique; margin-right: 0px;"> - Updated On: {{x.DateUpdated}}</span>
+
+												<span ng-show="x.Owner.Email == currentUser.Email">
+													&nbsp;&nbsp;
+
+													<button class="btn btn-danger" ng-click="DeleteQuestion(x)">&times;</button>
+												</span>
+												
+											</div>
+											
+										</div>
+
+										<div class="row" style="text-align: left; background-color: #F4F4F4; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px;" ng-show="x.Media.length != 0 && x.Media.length != undefined" >
+
+											<hr>
+
+											<span>&nbsp;&nbsp;Question Media:</span>
+
+											{{x.Media.length}}
+
+											<hr>
+
+											<div class="container" style="margin: auto; width: 100%;">
+												<div class="row" id="uploadrow">
+													
+													  <div class="column1" ng-repeat="y in x.Media track by $index">
+														<img src="{{y}}" ng-click="imgModalLoad1(y,x)" alt="" style="width:100%;" class="myImg frame" onload="this.width*=2;this.onload=null;">
+												
+														
+												</div>
+												
+											</div>
+											
+										</div>
+
+										
+									</div>
+
+									<div ng-if="x.Responses == undefined" class="row" style="text-align: left; background-color: #FFFFFF; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px; text-align: right;"  >
+
+											
+
+												<button class="btn btn-success" ng-click="postResponsetoGreenhorModalLoad(x)">Respond</button>
+														
+												
+
+												<br>
+												<br>	
+											</div>
+
+									<div ng-if="x.Responses != undefined && FindMyResponse(x.Responses) == false" class="row" style="text-align: left; background-color: #FFFFFF; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px; text-align: right;"  >
+
+											
+
+										<button class="btn btn-success" ng-click="postResponsetoGreenhorModalLoad(x)">Respond</button>
+												
+										
+
+										<br>
+										<br>	
+									</div>
+											
+									<div ng-if="x.Responses != undefined && FindMyResponse(x.Responses) != false" class="row" style="text-align: left; background-color: #FFFFFF; color: #800000; box-shadow: 2px 2px 5px #AAAAAA; padding: 10px; border-radius: 0px 0px 10px 10px; text-align: right;"  >
+
+											
+
+												<button class="btn btn-link" ng-click="viewResponsetoGreenhorModalLoad(x)">View My Response</button>
+														
+												
+
+												<br>
+												<br>
+											</div>
+
+									<!--  -->
+
+								</div>
+
+							</div>
+
+						</div>
+
+						
+					</div>
+
+
+				
+			
+			</div>
+
+				</div>
+			
+			</div>
+			
+			
+		</div>
+			
+		
+	
+	</div>
+	
+	<script type="text/javascript" src="references/js/resizebody.js"></script>

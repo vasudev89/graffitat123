@@ -1,0 +1,1286 @@
+.center
+{
+  margin: auto; 
+  width: 95%;
+}
+
+.img-center
+{
+  margin: auto;
+  width: 75%;
+}
+
+.table-text-center
+{
+  text-align: center;
+}
+
+body
+{
+  background-color:#FFFFFF;
+}
+
+#body_left
+{
+  position: fixed;
+  height: 100%;
+  width: 30px;
+  left: 0px;
+  background-color: #444444;
+  z-index: -1;
+}
+
+#body_right
+{
+  position: fixed;
+  height: 100%;
+  width: 15px;
+  right: 0px;
+  background-color: #444444;
+  z-index: -1;
+}
+
+#body_div
+{
+  /*margin-bottom: -1000px;
+  padding-bottom: 1000px;*/
+}
+
+.progressText
+{
+  font: 16px Impact, fantasy;
+  font-variant: small-caps;
+  font-style: oblique;
+}
+
+.body
+{
+  position : absolute;
+  
+  left: 25px;
+  right: 15px;
+  z-index: -1;
+  
+  top: 60px;
+  
+  /*font: 20px Impact, fantasy;
+  font-variant: small-caps;
+  font-style: oblique;*/
+  
+  /*background-color: #FFFFFF;*/
+}
+
+footer
+{
+  position: fixed;
+  bottom:0px;
+  width: 100%;
+  z-index:4;
+  color: #FFFFFF;
+  padding-top: 10px;
+  box-shadow: -10px 0px 10px #333333;
+  background-color: #444444;
+}
+
+.header-div
+{
+  font: 20px Impact, fantasy;
+  font-stretch: condensed;
+      
+  position: fixed; 
+  background-color: rgba(28,181,223,1.0); 
+  height: 100%;
+  line-height: 70px;
+  box-shadow: 5px 5px 20px #000000; 
+  width: 1vw;
+  border-bottom: 0px solid rgb(128,0,0);
+  border-top: 0px solid rgb(128,0,0);
+  z-index: 3; 
+}
+
+#navigation
+{
+  position: fixed;
+  width: 10px;
+  height: 120%;
+  
+  top: 60px;
+  
+  font: 20px Impact, fantasy;
+  font-variant: small-caps;
+  font-style: oblique;
+  
+  background-color: rgba(28,131,173,0.8);
+  border: 0px;
+  border-radius: 0px;
+  border-bottom: 0px solid rgb(128,0,0);
+  box-shadow: 0px 10px 20px #111111;
+  
+  z-index: 4;
+}
+
+#chat
+{
+  position: fixed;
+  width: 20px;
+  
+  
+  top: 60px;
+  right: 0px;
+  bottom: 40px;
+  
+  font: 20px Impact, fantasy;
+  font-variant: small-caps;
+  font-style: oblique;
+  
+  background-color: rgba(0,130,180,0.8);
+  border: 0px;
+  border-radius: 0px;
+  border-bottom: 0px solid rgb(128,0,0);
+  box-shadow: 0px 0px 2px #777777;
+  
+  z-index: 4;
+  
+  overflow-y: scroll;
+}
+
+#btn-chat-move
+{
+  position: fixed;
+  width: 20px;
+  height: 100%;
+  background-color: #FFFFFF;
+  border: none;
+  
+  font: 16px Calibri;
+  font-variant: normal;
+  font-style: normal;
+  
+  font-weight: bold;
+  
+  border-radius: 2px;
+}
+
+.chat-header
+{
+  width: 100%;
+  text-align: center;
+  background-color: #FFFFFF;
+  padding: 10px;
+  
+  font: 20px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+}
+
+.navigation-element
+{
+  visibility: hidden;
+  color: #FFFFFF;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.navigation-element:hover
+{
+  color: #AAAAAA;
+  background-color: #333333;
+  text-decoration: none;
+}
+
+.navbar-color
+{
+  color: #FFFFFF;
+}
+
+.navbar-button
+{
+  background-color: rgba(28,131,173,0.8);
+}
+
+.Underline
+{
+  position: fixed;
+  width: 100%;
+  font: 35px Impact, fantasy;
+  font-variant: small-caps;
+  font-style: oblique;
+  //font-weight: bold;
+
+  z-index: 1;
+  
+  text-decoration: underline;
+  
+  height: 60px;
+  line-height: 55px;
+  color: #FFC706;
+  
+  border-bottom: 0px solid rgb(228,228,228);
+  
+  //border: 2px solid rgba(28,131,173,0.8);
+  
+  box-shadow: 0px 2px 10px #222222;
+  
+  //background: rgba(28,201,243,0.8);
+  background: rgba(28,181,223,0.99);
+  
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.Underline-Text
+{
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.error-font
+{
+  font: bold small-caps 18px/50px Calibri, sans-serif;
+}
+
+.myprofile
+{
+  font: bold normal 18px/50px Calibri, sans-serif;
+  color: #666666;
+  
+  margin: auto;
+  width: 80%;
+}
+
+.select-menu
+{
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 5px;
+    outline: 1px solid #CCCCCC;
+    border: 0px solid #000000;
+    border-radius: 5px;
+   
+}
+
+.center_img
+{
+  margin: auto;
+  border: 0px solid #73AD21;
+  
+}
+
+textarea
+{
+  resize: none;
+}
+
+button
+{
+  outline: none;
+}
+
+.profile-img
+{
+    max-width:50%;
+}
+
+.blog-posts
+{
+  border-top: 1px solid rgb(128,128,0);
+  border-bottom: 1px solid rgb(128,128,0);
+  
+  font: 20px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+  
+  color: rgba(28,81,123,0.8); 
+  text-align: left; 
+  padding: 15px; "
+}
+
+.unread-message
+{
+  background-color: #FFC706; 
+}
+
+.blog-posts-nopost
+{
+  //border-top: 1px solid rgb(128,128,0);
+  border-bottom: 1px solid rgb(128,0,0);
+  
+  font: 18px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+  
+  color: rgba(28,81,123,0.8);
+  background-color: rgba(228,281,223,0.8); 
+  text-align: left; 
+  padding: 15px;
+}
+
+.chat-unread-messages
+{
+  //border-top: 1px solid rgb(128,128,0);
+  border-bottom: 1px solid rgb(128,0,0);
+  
+  font: 16px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+  
+  color: rgba(255,281,255,1.0);
+  background-color: rgba(128,181,123,0.8); 
+  text-align: left; 
+  padding: 15px;
+  
+  margin: auto;
+  
+  width: 85%; 
+}
+
+.blog-post-handle
+{
+  color: #333333;
+  padding: 15px;
+  font-size: 18px; 
+  font-variant: normal; 
+  font-style: oblique;
+  
+  background-color: rgba(228,281,223,0.8);
+}
+
+.blog-post-other
+{
+  color: #333333;
+  font-variant: normal; 
+  font-style: normal;
+  font: 17px Calibri;
+}
+
+.blog-post-comment
+{
+  color: #333333;
+  font-variant: normal; 
+  font-style: normal;
+  font: 15px Calibri;
+}
+
+.profile-list-group-item
+{
+  background-color: #AAAAAAA;
+  color: #333333;
+  
+  font: 18px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+  font-weight: bold;
+  
+  list-style: none;
+  
+  padding-left: 15px;
+}
+
+.profile-list-group-item:hover
+{
+  background-color: #CCCCCC;
+  color: #000000;
+}
+
+.user-online
+{
+  background-color: rgb(128,128,0);
+  border-radius: 2px;
+  padding: 10px;
+  color: #FFFFFF;
+  
+  font: 16px Calibri;
+  font-variant: small-caps;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.user-offline
+{
+  background-color: rgb(128,0,0);
+  border-radius: 2px;
+  padding: 10px;
+  color: #FFFFFF;
+  
+  font: 16px Calibri;
+  font-variant: small-caps;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.search-text
+{
+  font: 16px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+  font-weight: normal;
+}
+
+.link-disabled
+{
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.image-display-div
+{
+  position:fixed;
+  background-color: #333333;
+  top: 20px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  
+  visibility: hidden;
+}
+
+/*Snackbar Styles*/
+#snackbar {
+  font: 18px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+  font-weight: bold;
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #800000; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+/*Snackbar Styles*/
+
+/*Snackbar Styles*/
+#snackbar1 {
+  font: 18px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+  font-weight: bold;
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #800000; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar1.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+/*Snackbar Styles*/
+
+/*Snackbar Styles*/
+#snackbar2 {
+  font: 18px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+  font-weight: bold;
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #800000; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar2.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+/*Snackbar Styles*/
+
+/*Snackbar Styles*/
+#snackbar3 {
+  font: 18px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+  font-weight: bold;
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #800000; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar3.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+/*Snackbar Styles*/
+
+/*Loader Styles*/
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/*Loader Styles*/
+
+/*Loader Styles*/
+.loader1 {
+    position: absolute;
+    border: 6px solid #f3f3f3; /* Light grey */
+    border-top: 6px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    right: 35px;
+    top: 13px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/*Loader Styles*/
+
+.MentorProfileView
+{
+  font: 20px Calibri;
+  font-variant: small-caps;
+  font-style: oblique;
+}
+
+.MentorProfile
+{
+
+}
+.MentorProfile:hover{
+  background-color: rgba(28,131,173,0.1);
+}
+
+/*Chip*/
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 30px;
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+/*Chip*/
+
+
+
+
+
+
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.prev1{
+  cursor: pointer;
+  
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  width: 80px;
+  height: 60px;
+  
+  background-color: rgba(128,0,0,0.8);
+  padding: 16px;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next1{
+  cursor: pointer;
+  
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  width: 80px;
+  height: 60px;
+  
+  background-color: rgba(128,0,0,0.8);
+  padding: 16px;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev1:hover, .next1:hover {
+  background-color: #FFC706;
+  color: #800000;
+}
+
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  
+  top: 0%;
+  left: 0%;
+  width: 80px;
+  height: 80px;
+  
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0%;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(128,0,0,0.8);
+  color: #FFFFFF;
+}
+
+/* Caption text */
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor:pointer;
+  height: 13px;
+  width: 13px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade1 {
+  -webkit-animation-name: fade1;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade1;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade1 {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade1 {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+
+/**/
+
+/**/
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    /*padding: 6px 12px;*/
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #800000; /* Set a background color */
+    color: white; /* Text color */
+    font-weight: bold;
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+}
+
+#myBtn:hover {
+    background-color: #FFC706; /* Add a dark-grey background on hover */
+    color: #800000;
+}
+
+/* Three columns side by side */
+.column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
+
+.column1 {
+    float: left;
+    width: 15%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media (max-width: 650px) {
+    .column1 {
+        width: 100%;
+        display: block;
+    }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+    padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+.button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: #555;
+}
+
+.frame {  
+    margin: auto; vertical-align: middle;
+  }
+
+.col-container {
+    display: table; /* Make the container element behave like a table */
+    width: 100%; /* Set full-width to expand the whole page */
+}
+
+.col {
+    display: table-cell; /* Make elements inside the container behave like table cells */
+}
+
+
+/*Img Modal*/
+.myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal1 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content1 {
+    margin: auto;
+    display: block;
+    max-width: 700px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption1 {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content1, #caption { 
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close1 {
+    position: absolute;
+    top: 10%;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close1:hover,
+.close1:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content1 {
+        width: 100%;
+    }
+}
+/*Img Modal*/
+
+
+input[type="checkbox"] {
+  display: block;
+  width: 26px;
+  height: 26px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  -webkit-appearance: none;
+  outline: 0;
+  margin: -4px 0 0;
+  margin-top: 1px\9;
+  line-height: normal;
+  position: absolute;
+  margin-top: 4px\9;
+}
+
+input[type="checkbox"]:not(:checked) {
+  background-image: url(http://livemysite.com/Eduardo/img/unchecked.png);
+
+}
+
+input[type="checkbox"]:checked {
+  background-image: url(http://livemysite.com/Eduardo/img/checked.png);
+  background-size: 70%;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #AAAAAA; 
+}
+
+[placeholder]:empty:focus:before {
+    content: "";
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    background-color: silver;
+    width: 200px;
+    height:20px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: #666;
+    opacity: 0.5;
+    width: 10px;
+    height: 26px;
+}
+
+.alert1 {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn1 {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn1:hover {
+    color: black;
+}
+
+.rating {
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+}
+ul.rating {
+    display: inline-block;
+}
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.rating .filled {
+    color: red;
+}
+
+
+
+
+/**/
+.elementResizable {
+    border: 1px solid #000000;
+    width: 300px;
+    height: 140px;
+    overflow: hidden;
+}
+.nwgrip, .negrip, .swgrip, .segrip, .ngrip, .egrip, .sgrip, .wgrip {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+.swgrip {
+    right: -25px;
+    bottom: -25px;
+}
+
+  .dragme{
+      cursor: move;
+    }
+

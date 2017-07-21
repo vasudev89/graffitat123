@@ -1,0 +1,26 @@
+{
+  "name": "graffitat",
+  "version": "1.0.0",
+  "description": "graffitat",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongodb": "^2.2.26"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasudev89/graffitat.git"
+  },
+  "author": "vasudev vashisht",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vasudev89/graffitat/issues"
+  },
+  "homepage": "https://github.com/vasudev89/graffitat#readme"
+}

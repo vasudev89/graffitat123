@@ -1,0 +1,335 @@
+
+<!-- ChangePasswordModal -->
+									<div id="ChangePasswordModal" class="modal fade" role="dialog"  >
+									  <div class="modal-dialog modal-lg">
+
+									    <!-- Modal content-->
+									    <div class="modal-content" style="margin-top: 100px;">
+									      <div class="modal-header" style="background-color: #800000; color: #FFFFFF;">
+									        <button type="button" class="close" data-dismiss="modal" style="color: #FFFFFF;">&times;</button>
+									        <h4 class="modal-title" style="font: 20px Impact, fantasy;font-variant: small-caps;font-style: oblique;">Change Password</h4>
+									      </div>
+									      <div class="modal-body">
+									        
+									      	<!--  -->
+									        <div class="row">
+
+				<div class="col-lg-12" style="font: 20px Calibri, fantasy;font-variant: small-caps;">
+					
+						
+						<div style="height: 20px;"></div>
+								
+
+						<table class="table center login">
+							
+							
+							<tr>
+								<td><input path="password" type="password" ng-model="ChangePasswordCurrentPassword" ng-change="ValidateChangePasswordCurrentPassword()" class="form-control form-input" placeholder="Enter Current Password"/></td>								
+							</tr>
+							<tr ng-show="ChangePasswordCurrentPassword == '' && ChangePasswordCurrentPasswordTouched == true">
+							<td class="text-danger error-font"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;Current Password cannot be empty</td>
+							</tr>
+							<tr ng-show="ChangePasswordCurrentPassword == ChangePasswordNewPassword && ChangePasswordCurrentPasswordTouched == true">
+							<td class="text-danger error-font"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;Current Password cannot be the same as New Password</td>
+							</tr>
+										  	
+							<tr>
+								<td><input path="password" type="password" ng-model="ChangePasswordNewPassword" ng-change="ValidateChangePasswordNewPassword()" class="form-control form-input" placeholder="Enter New Password"/></td>								
+							</tr>
+							<tr ng-show="ChangePasswordNewPasswordError">
+							<td class="text-danger error-font"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;Password must be greater than 8 characters</td>
+							</tr>
+							
+							<tr>
+								<td><input path="cPassword" type="password" ng-model="ChangePasswordConfirmNewPassword" ng-change="ValidateChangePasswordConfirmNewPassword()" class="form-control form-input" id="cpassword" placeholder="Confirm New Password"/></td>								
+							</tr>
+							<tr ng-show="ChangePasswordConfirmNewPasswordError">
+							<td class="text-danger error-font"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;Passwords do not match</td>
+							</tr>
+
+							<tr ng-show="showChangePasswordProgress">
+								<td colspan="2">
+								<div class="loader"></div>
+								</td>
+							</tr>
+							
+							<tr>
+								<td colspan="2" >
+								<div class="row">
+									<div class="col-md-2 col-md-offset-5"> <button class="btn btn-success" ng-click="ChangePassword()" ng-disabled="ChangePasswordPasswordOverallError">Submit</button> </div>
+								</div>
+								</td>
+							</tr>
+										  	
+						</table>
+
+						<div id="snackbar2">Some text some message..</div>
+					
+				</div>
+			
+			</div>
+									        <!--  -->
+
+									      </div>
+									      
+									    </div>
+
+									  </div>
+									</div>
+									<!-- ChangePasswordModal -->
+
+
+<div class="body" id="body_div">
+	
+		<div class="container center" id="index_div_row">
+			
+			<br>
+			
+			<div class="row">
+				<div class="col-lg-12" style="font: small-caps 28px/50px Calibri, sans-serif; color: rgba(28,181,223,0.8); background-color: rgba(255,255,255,1.0); border-bottom: 1px solid rgb(128,0,0); text-align: left; padding-left: 15px; ">
+					My Profile
+				</div>
+			</div>
+
+			<div class="row" style="border-bottom: 1px solid rgb(128,0,0); text-align: center; padding: 20px;">
+									<div class="col-md-12"> <button class="btn btn-primary" data-toggle="modal" data-target="#ChangePasswordModal" style="font-size: 18px; font-family: Calibri;" ng-disabled="stateDisabled">Change Password</button> </div>
+
+
+								</div>
+						
+						<div style="height: 20px;"></div>
+			
+			<div class="wrapper" data-anim="base wrapper">
+			  <div class="circle" data-anim="base left"></div>
+			  <div class="circle" data-anim="base right"></div>
+			</div>
+			
+			<div class="row">
+			
+				<div class="col-lg-12">
+				
+				<!--  -->
+			
+				<br>
+			
+				<table class="table center myprofile">
+				
+					
+					<tr>
+						
+						<td colspan="2" style="text-align: center;">
+							
+								<button type="button" class="btn btn-link" ng-click="openFileChooser();" ng-disabled="stateDisabled">Change Picture</button>
+								
+								<br>
+								<div ng-if="imageUpload">
+									<div class="loader"></div>
+									<br>
+								</div>
+									
+								<img name="ProfilePicture" src="{{currentUser.ProfilePicUrl}}" class="img-responsive  img-thumbnail" id="profilepic" style="max-height: 300px;"></img>
+								<br>
+								<input type="file" id="trigger" ng-show="false" onchange="angular.element(this).scope().setFile(this)" accept="image/*" file-model="myFile"/>
+								<br>
+								<button type="button" class="btn btn-danger" ng-click="DeleteProfilePic();" ng-disabled="stateDisabled || defaultPic" style="margin: auto; width: 20%;" ng-show=" currentUser.ProfilePicUrl != 'images/profilepic_male.jpg' && currentUser.ProfilePicUrl != 'images/profilepic_female.jpg' ">Delete Picture</button>
+								<br>
+							<br>
+						</td>
+						
+					</tr>
+				
+					
+				
+					<tr>
+						<td style="width: 50%;">Email ID:</td>
+						<td style="width: 50%;">
+							<label>{{currentUser.Email}}</label>							
+						</td>
+						
+					</tr>
+					
+					<tr>
+						<td>User Name:</td>
+						<td>
+							<label ng-show="!change">{{currentUser.Username}}</label>
+							<input ng-show="change" type="text" class="form-control form-input" placeholder="Enter Username" ng-model="currentUser.Username" ng-change="ValidateUsername();" ng-disabled="stateDisabled"/>
+							<span class="text-danger bg-danger error-font" ng-show="UsernameError"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;Username Cannot Be Empty</span>			
+						</td>
+					</tr>
+
+					<tr>
+						<td>Date of Birth:</td>
+						<td>
+							<label ng-show="!change">{{dateDisplay}}</label>
+							<input ng-show="change" type="date" class="form-control form-input" placeholder="Enter Username" ng-model="currentUser.Date" ng-change="ValidateDate();" ng-disabled="stateDisabled"/>
+							<span class="text-danger bg-danger error-font" ng-show="DateError"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;Please enter a correct date.</span>			
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Gender:</td>
+						<td>
+							<label ng-show="!change">{{currentUser.Gender}}</label>
+							<select ng-show="change" class="form-control select-menu" ng-disabled="stateDisabled" ng-change="updateUserData();" ng-model="currentUser.Gender" >
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>								  
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Phone:</td>
+						<td>
+							<label ng-show="!change">{{currentUser.Phone}}</label>
+							<input ng-show="change" type="number" class="form-control form-input" placeholder="Enter Phone" ng-model="currentUser.Phone" ng-change="ValidatePhone();" ng-disabled="stateDisabled" ng-change="updateUserData();"/>
+							<span class="text-danger bg-danger error-font table-text-center" ng-show="PhoneError"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;Invalid Phone. Must be a 10 Digit Phone Number.</span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Location:</td>
+						<td>
+							<label ng-show="!change">{{currentUser.Location}}</label>
+							<textarea ng-show="change" class="form-control form-input" placeholder="Enter Location" ng-disabled="stateDisabled" ng-change="ValidateLocation();" ng-model="currentUser.Location"></textarea>
+							<span class="text-danger bg-danger error-font table-text-center" ng-show="LocationError"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;Location cannot be empty.</span>
+						</td>
+					</tr>
+					
+					<tr ng-show=" currentUser.Type == 'Greenhorn' ">
+						<td>About Yourself:</td>
+						<td>
+							<label ng-show="!change">{{currentUser.AboutYourself}}</label>
+							<textarea ng-show="change" class="form-control form-input" placeholder="About Yourself" ng-disabled="stateDisabled" ng-change="updateUserData();" ng-model="currentUser.AboutYourself"></textarea>
+						</td>
+					</tr>
+					
+					<tr ng-show=" currentUser.Type == 'Mentor' ">
+						<td>Qualifications:</td>
+						<td>
+							<label ng-show="!change">{{currentUser.Qualifications}}</label>
+							<textarea ng-show="change" class="form-control form-input" placeholder="Enter Qualifications" ng-disabled="stateDisabled" ng-change="ValidateQualifications();" ng-model="currentUser.Qualifications"></textarea>
+							<span class="text-danger bg-danger error-font table-text-center" ng-show="QualificationsError"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;Qualifications cannot be empty.</span>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="2" >
+							<div class="row">
+								<br>
+								<div class="col-md-2 col-md-offset-5"> 
+									<button type="button" class="btn btn-info" id="change_update_btn" ng-click="toggleChangeUpdate();" ng-disabled="stateDisabled || UsernameError || DateError || PhoneError || LocationError || QualificationsError">Change</button>
+									
+									&nbsp;&nbsp;
+									
+									<button ng-show="change" type="button" class="btn btn-link" id="change_update_btn" ng-click="letItBe();" ng-disabled="stateDisabled">Let It Be</button> 
+								</div>
+							</div>
+						</td>
+					</tr>
+					
+				</table>
+				
+				<!--  -->
+				
+				</div>
+			
+			</div>
+			
+			<br>
+			
+			<div class="row" ng-show="currentUserMatch">
+				<div class="col-lg-12" style="font: small-caps 28px/50px Calibri, sans-serif; color: rgba(28,181,223,0.8); background-color: rgba(255,255,255,1.0); border-bottom: 1px solid rgb(128,0,0); text-align: left; padding-left: 15px; ">
+					Change Password
+				</div>
+			</div>
+			
+			<div class="row" ng-show="currentUserMatch">
+			
+				<div class="col-lg-12">
+				
+				<!--  -->
+			
+				<br>
+				<br>
+			
+				<table class="table center myprofile">
+				
+					<tr ng-show="passwordUpdated">
+						
+						<td colspan="2">
+							
+								<span class="text-success bg-success error-font" >Password Updated Successfully</span>
+							
+						</td>
+						
+					</tr>
+					
+					<tr ng-show="passwordUpdatedWithError">
+						
+						<td colspan="2">
+							
+								<span class="text-danger bg-danger error-font"><span class="glyphicon glyphicon-remove-sign"></span>&nbsp;&nbsp;{{passwordUpdateError}}</span>
+							
+						</td>
+						
+					</tr>
+				
+					<tr>
+						<td style="width: 50%;">Current Password:</td>
+						<td style="width: 50%;">
+							<input name="current_pass" path="current_pass" type="password" class="form-control form-input" placeholder="Enter Current Password" ng-model="UserPasswordDetails.CurrentPassword" ng-change="ValidateCurrentPassword();" ng-focus="ValidateCurrentPassword();" ng-disabled="stateDisabled" />
+							<span class="text-danger bg-danger error-font table-text-center" ng-show="CurrentPasswordError">Current Password has to be between 6-15 Characters</span>
+						</td>
+						
+					</tr>
+					
+					<tr>
+						<td>New Password:</td>
+						<td>
+							<input name="new_pass" path="new_pass" type="password" class="form-control form-input" placeholder="Enter New Password" ng-model="UserPasswordDetails.NewPassword" ng-change="ValidateNewPassword();" ng-focus="ValidateNewPassword();" ng-disabled="stateDisabled"/>
+							<span class="text-danger bg-danger error-font table-text-center" ng-show="NewPasswordError">New Password has to be between 6-15 Characters</span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Confirm New Password:</td>
+						<td>
+							<input name="cnew_pass" path="cnew_pass" type="password" class="form-control form-input" placeholder="Confirm New Password" ng-model="UserPasswordDetails.ConfirmNewPassword" ng-change="ValidateConfirmNewPassword();" ng-focus="ValidateConfirmNewPassword();" ng-disabled="stateDisabled"/>
+							<span class="text-danger bg-danger error-font table-text-center" ng-show="ConfirmNewPasswordError">Confirm New Password has to be between 6-15 Characters</span>
+						</td>
+					</tr>
+					
+					<tr ng-show="MatchNewPasswords">
+						<td></td>
+						<td>
+							<span class="text-danger bg-danger error-font table-text-center" ng-show="MatchNewPasswords">New Password & it's Confirmation must match</span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2" >
+							<div class="row">
+								<br>
+								<div class="col-md-2 col-md-offset-5"> <button type="submit" class="btn btn-success" ng-disabled="stateDisabled" ng-click="sendPasswordForUpdate();">Submit</button> </div>
+							</div>
+						</td>
+					</tr>
+						
+				</table>
+				
+				<br>
+				
+				<!--  -->
+				
+				</div>
+			
+			</div>
+			
+			
+		</div>
+			
+		
+	
+	</div>
+	
+	<script type="text/javascript" src="references/js/resizebody.js"></script>
